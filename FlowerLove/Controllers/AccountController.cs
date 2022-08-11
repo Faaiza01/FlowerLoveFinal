@@ -130,6 +130,7 @@ namespace FlowerLove.Controllers
 
         public ActionResult Signout()
         {
+            Session["IsAuthenticated"] = "false";
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
