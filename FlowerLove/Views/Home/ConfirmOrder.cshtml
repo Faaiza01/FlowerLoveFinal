@@ -1,0 +1,28 @@
+﻿@model FlowerLove.Data.Models.Domain.getallorder
+
+@using (Html.BeginForm())
+{
+    <span>InvoiceId : </span>
+    @Html.EditorFor(model => Model.InvoiceId)
+    <br />
+    <br />
+    <span>UserId : </span>
+    @Html.EditorFor(model => Model.UserId)
+    <br />
+    <br />
+    <span>Payment : </span>
+    @Html.EditorFor(model => model.Payment)
+    <br />
+    <br />
+    <span>Bill : </span>
+    @Html.EditorFor(model => model.Bill)
+    <br />
+    <br />
+    <span>InvoiceDate : </span>
+    @Html.EditorFor(model => model.InvoiceDate)
+    <br />
+    <br />
+
+    <input type="submit" value="Confirm Order" class="btn btn-success" />
+
+}
