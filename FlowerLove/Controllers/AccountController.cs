@@ -68,7 +68,7 @@ namespace FlowerLove.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                t.RoleType = 2;
                 FlowerService.AddUsers(t);
                 return RedirectToAction("Login", "Account");
             }
