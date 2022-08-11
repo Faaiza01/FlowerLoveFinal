@@ -40,7 +40,14 @@
                 </td>
 
                 <td>
-                    <span class="btn btn-success">Approve</span>
+                    @if (item.Status == 1)
+                    {
+                        <span>Approve</span>
+                    }
+                    else
+                    {
+                        <span>Pending</span>
+                    }
                 </td>
                 <td>
                     <a href="@Url.Action("Invoice", "Home", new { id = item.InvoiceId })" class="btn btn-primary">Print</a>

@@ -136,7 +136,7 @@ namespace FlowerLove.Data.Repository
                 Name = "Yellow Flower Pot",
                 Description = "Material : Ceramic, Plant Location : Indoor",
                 Unit = 60,
-                Image = "img-10.jpg",
+                Image = "img-10.png",
                 CatId = 1
             };
             context.tblProducts.Add(tblProduct10);
@@ -146,7 +146,7 @@ namespace FlowerLove.Data.Repository
                 Name = "Red Flower Pot",
                 Description = "Material : Ceramic, Plant Location : Indoor",
                 Unit = 50,
-                Image = "img-11.jpg",
+                Image = "img-11.jpeg",
                 CatId = 2
             };
             context.tblProducts.Add(tblProduct11);
@@ -166,7 +166,7 @@ namespace FlowerLove.Data.Repository
                 Name = "Double Color Flower Pot",
                 Description = "Material : Ceramic, Plant Location : Indoor",
                 Unit = 35,
-                Image = "img-13.jpg",
+                Image = "img-13.png",
                 CatId = 1
             };
             context.tblProducts.Add(tblProduct13);
@@ -176,7 +176,7 @@ namespace FlowerLove.Data.Repository
                 Name = "Colorful Flower Pot",
                 Description = "Material : Ceramic, Plant Location : Indoor",
                 Unit = 20,
-                Image = "img-14.jpg",
+                Image = "img-14.jpeg",
                 CatId = 2
             };
             context.tblProducts.Add(tblProduct14);

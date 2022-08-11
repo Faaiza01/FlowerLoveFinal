@@ -44,7 +44,21 @@ namespace FlowerLove.Data.DAO
         }
         public List<getallorderuser> OrderDetail(FlowerLoveContext db, int id)
         {
-            return db.getallorderusers.Where(m => m.UserId == id).ToList();
+            var Invoice = db.tblInvoices.Where(x => x.UserId == id).ToList();
+            var userInfo = db.tblUsers.Where(x => x.UserId == id).FirstOrDefault();
+            List<getallorderuser> getallorderusers = new List<getallorderuser>();
+            foreach (var item in Invoice)
+            {
+               getallorderuser getallorderuser = new getallorderuser();
+               getallorderuser.user = userInfo.Name;
+               getallorderuser.Bill = item.Bill;
+               getallorderuser.Payment = item.Payment;
+               getallorderuser.InvoiceDate = item.InvoiceDate;
+               getallorderuser.Status = item.Status;
+               getallorderusers.Add(getallorderuser);
+            }
+
+            return getallorderusers;
         }
         public List<tblUser> GetAllUsers(FlowerLoveContext db)
         {
