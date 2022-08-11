@@ -28,12 +28,39 @@ namespace FlowerLove.Data.DAO
 
         public List<getallorder> GetAllOrders(FlowerLoveContext db)
         {
-            return db.getallorders.ToList();
+            var Invoices = db.tblInvoices.ToList();
+            List<getallorder> getallorderusers = new List<getallorder>();
+            foreach (var item in Invoices)
+            {
+                var userInfo = db.tblUsers.Where(x => x.UserId == item.UserId).FirstOrDefault();
+                getallorder getallorderuser = new getallorder();
+                getallorderuser.user = userInfo.Name;
+                getallorderuser.Bill = item.Bill;
+                getallorderuser.Payment = item.Payment;
+                getallorderuser.InvoiceDate = item.InvoiceDate;
+                getallorderuser.Status = item.Status;
+                getallorderuser.InvoiceId = item.InvoiceId;
+
+                getallorderusers.Add(getallorderuser);
+            }
+
+            return getallorderusers;
         }
 
         public getallorder GetOrderById(FlowerLoveContext db, int Id)
         {
-            return db.getallorders.SingleOrDefault(m => m.InvoiceId == Id);
+            getallorder getallorderuser = new getallorder();
+            var Invoices = db.tblInvoices.Where(d => d.InvoiceId == Id).SingleOrDefault();
+            var userInfo = db.tblUsers.Where(x => x.UserId == Invoices.UserId).FirstOrDefault();
+
+            getallorderuser.user = userInfo.Name;
+            getallorderuser.Bill = Invoices.Bill;
+            getallorderuser.Payment = Invoices.Payment;
+            getallorderuser.InvoiceDate = Invoices.InvoiceDate;
+            getallorderuser.Status = Invoices.Status;
+            getallorderuser.InvoiceId = Invoices.InvoiceId;
+            getallorderuser.UserId = userInfo.UserId;
+            return getallorderuser;
 
         }
 
